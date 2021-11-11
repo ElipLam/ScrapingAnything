@@ -98,6 +98,8 @@ Total: 25 games
 Elapsed: 00:00:02.14
 Sale free game:  [('Beholder', '9 Nov, 2016', 'Free', -100.0, 'https://store.steampowered.com/app/475550/Beholder/?snr=1_7_7_230_150_3')]
 ```
+If you want to have a good list, you can go to [SteamDB](https://steamdb.info/sales/)
+
 
 ## Command line support
 
