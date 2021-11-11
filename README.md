@@ -30,6 +30,7 @@ $ export_data.py [-h] [-s {csv,excel,all}]
 **Functions**:
 - **clean_text(string)** : clear `\n ` and`multi whitespaces`
 - **real_time(elapsed)** : show elapsed time with digital clock format. 
+- **csv2excel(csv_filename, excel_filename)**: convert from `csv_filename` to `excel_filename`
 - **save_data(list_data, save_type, header, file_name)**: save `list data` as `save type` file with `header` and `file name`
 
 
@@ -43,6 +44,7 @@ $ py .\scraping_local_titles.py -s csv
 
 **Output**:
 ```
+No such file or directory: 'sample_output.csv'
 Elapsed: 00:00:00.04
 ```
 
@@ -100,8 +102,10 @@ Sale free game:  [('Beholder', '9 Nov, 2016', 'Free', -100.0, 'https://store.ste
 ## Command line support
 
 - Create requirements.txt :
+
 ```console
 $ py -m pipreqs.pipreqs . --encoding=utf8
 ``` 
 
 
+###### [on top](#table-of-contents)
