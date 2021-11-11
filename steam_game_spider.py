@@ -1,8 +1,8 @@
-import scrapy
-from scrapy.crawler import CrawlerProcess
-import time
-import argparse
 import re
+import time
+import scrapy
+import argparse
+from scrapy.crawler import CrawlerProcess
 from export_data import save_data, clean_text, real_time
 
 
