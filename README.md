@@ -108,6 +108,9 @@ If you want to have a good list, you can go to [SteamDB](https://steamdb.info/sa
 ```console
 $ py -m pipreqs.pipreqs . --encoding=utf8
 ``` 
-
+- Install requirements:
+```console
+$ pip install -r requirements.txt
+```
 
 ###### [on top](#table-of-contents)
