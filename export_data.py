@@ -1,8 +1,10 @@
-from openpyxl import Workbook, load_workbook
-import csv
-import argparse
+import os
 import re
+import csv
 import time
+import argparse
+import pandas as pd
+from openpyxl import Workbook, load_workbook
 
 EXCEL_COLUMNS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
                       'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -49,6 +51,14 @@ def save_excel(list_data=[], save_type=None, header=['H1', 'H2', 'H3'], file_nam
     workbook.save(filename=f'{file_name}.xlsx')
 
 
+def csv2excel(csv_filename='sample_output.csv', excel_filename='sample_output_converted.xlsx'):
+    if os.path.isfile(csv_filename):
+        df = pd.read_csv(csv_filename)
+        df.to_excel(excel_filename, index=False)
+    else:
+        print(f'No such file or directory: \'{csv_filename}\'')
+
+
 def save_data(list_data=[], save_type=None, header=['H1', 'H2', 'H3'], file_name='export_data'):
     # save to csv file
     if save_type == 'csv':
@@ -70,6 +80,7 @@ if __name__ == '__main__':
     save_type = args.save
     start_time = time.time()
     # sample output
+    csv2excel('list_steam_games.csv')
     save_data(list_data=[(1, 2, 4, 5)], save_type='excel',
               file_name='sample_output')
     save_data(list_data=[(1, 2, 4, 5)], save_type=save_type)
