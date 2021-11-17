@@ -63,11 +63,12 @@ class TestRealTime(object):
 
 class TestSaveCSV(object):
     def test_empty_list(self):
+        directory = 'output_data'
         csv_file_path = 'test_csv_save'
         save_csv(list_data=[], save_type=None, header=[
                  'h1', 'h2', 'h3'], file_name=csv_file_path)
         
-        full_file_name = f"{csv_file_path}.csv"
+        full_file_name = f"{directory}/{csv_file_path}.csv"
         with open(full_file_name, encoding='utf-8') as csvflie:
             lines = csvflie.readlines()
         os.remove(full_file_name)
@@ -80,11 +81,12 @@ class TestSaveCSV(object):
         assert exception_info.match('list index out of range')
 
     def test_empty_over_list(self):
+        directory = 'output_data'
         csv_file_path = 'test_csv_save'
         save_csv(list_data=[(1, "hai", 3, 5)], save_type=None, header=[
                  'h1', 'h2', 'h3'], file_name=csv_file_path)
         
-        full_file_name = f"{csv_file_path}.csv"
+        full_file_name = f"{directory}/{csv_file_path}.csv"
         with open(full_file_name, encoding='utf-8') as csvflie:
             lines = csvflie.readlines()
         os.remove(full_file_name)

@@ -33,21 +33,27 @@ def real_time(elapsed=00000):
 
 
 def save_csv(list_data=[], save_type=None, header=['H1', 'H2', 'H3'], file_name='export_data'):
-    with open(f'{file_name}.csv', 'w', encoding='utf-8', newline='', ) as f:
+    directory = 'output_data'
+    full_path = f'{directory}/{file_name}'
+
+    with open(f'{full_path}.csv', 'w', encoding='utf-8', newline='', ) as f:
         writer = csv.writer(f)
         writer.writerow(header)
         writer.writerows(list_data)
 
 
 def save_excel(list_data=[], save_type=None, header=['H1', 'H2', 'H3'], file_name='export_data'):
+    directory = 'output_data'
+    full_path = f'{directory}/{file_name}'
+    
     # create excel file
     wb = Workbook()
     wb1 = wb.active
     wb1.title = "Sheet1"
-    wb.save(f'{file_name}.xlsx')
+    wb.save(f'{full_path}.xlsx')
 
     # open file
-    workbook = load_workbook(filename=f'{file_name}.xlsx')
+    workbook = load_workbook(filename=f'{full_path}.xlsx')
     sheet_file = workbook['Sheet1']
     for i, head in enumerate(header):
         sheet_file[EXCEL_COLUMNS[i]+'1'] = head
@@ -56,15 +62,18 @@ def save_excel(list_data=[], save_type=None, header=['H1', 'H2', 'H3'], file_nam
         for i, row in enumerate(list_data):
             for j, head in enumerate(header):
                 sheet_file[EXCEL_COLUMNS[j]+str(i+2)] = row[j]
-    workbook.save(filename=f'{file_name}.xlsx')
+    workbook.save(filename=f'{full_path}.xlsx')
 
 
 def csv2excel(csv_filename='sample_output.csv', excel_filename='sample_output_converted.xlsx'):
+    directory = 'output_data'
+    full_path = f'{directory}/{csv_filename}'
+
     if os.path.isfile(csv_filename):
-        df = pd.read_csv(csv_filename)
-        df.to_excel(excel_filename, index=False)
+        df = pd.read_csv(full_path)
+        df.to_excel(f'{directory}/{excel_filename}', index=False)
     else:
-        print(f'No such file or directory: \'{csv_filename}\'')
+        print(f'No such file or directory: \'{full_path}\'')
 
 
 def save_data(list_data=[], save_type=None, header=['H1', 'H2', 'H3'], file_name='export_data'):
