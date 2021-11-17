@@ -112,5 +112,11 @@ $ py -m pipreqs.pipreqs . --encoding=utf8
 ```console
 $ pip install -r requirements.txt
 ```
+- Use pytest:
+```console
+$ pytest tests
+$ pytest tests/test_export_data.py::TestRealTime
+$ pytest tests/test_export_data.py::TestRealTime::test_real_time_negative
+```
 
 ###### [on top](#table-of-contents)
