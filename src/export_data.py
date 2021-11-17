@@ -11,13 +11,21 @@ EXCEL_COLUMNS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
 
 
 def clean_text(string):
-    pattern_n = r'\n|\s{2}'
-    result = re.sub(pattern_n, '', string)
+    pattern_new_line = r'\n'
+    clean_n_result = re.sub(pattern_new_line, '', string)
+
+    pattern_multi_spaces = r'\s{2,}'
+    multi_spaces_result = re.sub(pattern_multi_spaces, ' ', clean_n_result)
+
+    pattern_head_tail_spaces = r'^\s+|\s+$'
+    result = re.sub(pattern_head_tail_spaces, '', multi_spaces_result)
     return result
 
 
 def real_time(elapsed=00000):
     # show real time
+    if elapsed < 0:
+        raise ValueError('Elapsed negative')
     hours, rem = divmod(elapsed, 3600)
     minutes, seconds = divmod(rem, 60)
     result = '{:0>2}:{:0>2}:{:05.2f}'.format(int(hours), int(minutes), seconds)

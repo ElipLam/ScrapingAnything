@@ -18,8 +18,8 @@ class SteamSpider(scrapy.Spider):
     name = 'steam_games_spider '
 
     def start_requests(self):
-        list_page_number = range(3, 4) # DEBUG
-        # list_page_number = range(1, 4354)
+        # list_page_number = range(3, 4) # DEBUG
+        list_page_number = range(1, 4354)
         urls = [*map(lambda page: f'https://store.steampowered.com/search/?sort_by=Price_ASC&page={page}',
                 list_page_number)]
         for url in urls:
