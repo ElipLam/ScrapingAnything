@@ -7,7 +7,7 @@ Scrape any website
 
 - [Export Data Module](#export-data-module)
 - [Steam Spider](#steam-spider)
-- [Command line support](#command-line-support)
+- [Support Command-line](#support-command-line)
 
 
 ## Export Data Module
@@ -101,7 +101,7 @@ Sale free game:  [('Beholder', '9 Nov, 2016', 'Free', -100.0, 'https://store.ste
 If you want to have a good list, you can go to [SteamDB](https://steamdb.info/sales/)
 
 
-## Command line support
+## Support Command-line
 
 - Create requirements.txt :
 
@@ -117,6 +117,16 @@ $ pip install -r requirements.txt
 $ pytest tests
 $ pytest tests/test_export_data.py::TestRealTime
 $ pytest tests/test_export_data.py::TestRealTime::test_real_time_negative
+```
+- Upgrade library:
+
+```console
+$ pip install -U <library>
+```
+- Upgrade pip:
+
+```console
+$ py -m pip install --upgrade pip
 ```
 
 ###### [on top](#table-of-contents)
