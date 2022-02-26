@@ -103,6 +103,28 @@ If you want to have a good list, you can go to [SteamDB](https://steamdb.info/sa
 
 ## Support Command-line
 
+- To set your global username/email configuration:
+Open the command line.
+
+```
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
+```
+
+- Create Virtual Environment :
+
+```console
+> python -m venv venv
+> venv\Scripts\activate
+(venv) >
+``` 
+> fix `cannot be loaded because running scripts is disabled on this system`:
+```console
+> set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
+> Get-ExecutionPolicy
+> Get-ExecutionPolicy -list  
+```
+ 
 - Create requirements.txt :
 
 ```console
