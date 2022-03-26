@@ -114,15 +114,15 @@ git config --global user.email "MY_NAME@example.com"
 - Create Virtual Environment :
 
 ```console
-> python -m venv venv
-> venv\Scripts\activate
+python -m venv venv
+venv\Scripts\activate
 (venv) >
 ``` 
 > fix `cannot be loaded because running scripts is disabled on this system`:
 ```console
-> set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
-> Get-ExecutionPolicy
-> Get-ExecutionPolicy -list  
+set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
+Get-ExecutionPolicy
+Get-ExecutionPolicy -list  
 ```
  
 - Create requirements.txt :
